@@ -21,6 +21,7 @@ func main() {
 	router.HandleFunc("/contato", handlers.GetPeople(app)).Methods("GET")
 	router.HandleFunc("/contato/{id}", handlers.GetPerson(app)).Methods("GET")
 	router.HandleFunc("/contato/{id}", handlers.CreatePerson(app)).Methods("POST")
+	router.HandleFunc("/contato/{id}", handlers.UpdatePerson(app)).Methods("PUT")
 	router.HandleFunc("/contato/{id}", handlers.DeletePerson(app)).Methods("DELETE")
 
 	log.Fatal(http.ListenAndServe(":9000", router))
